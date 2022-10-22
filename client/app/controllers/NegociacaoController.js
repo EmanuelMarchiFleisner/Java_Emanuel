@@ -5,7 +5,7 @@ class NegociacaoController{
         this._inputData = $("#data");
         this._inputQuantidade = $("#quantidade");
         this._inputValor = $("#valor");
-
+        this._negociacoes = new Negociacoes();
     }
 
     adciona(event) {
@@ -18,10 +18,15 @@ class NegociacaoController{
             parseFloat(this._inputValor.value)
         );
 
-        let diaMesAno = DateConverter.paraTexto(data);
-        console.log(diaMesAno);
+        this._negociacoes.adiciona(negociacao);
 
-        console.log(negociacao);
+        console.log(this._negociacoes.paraArray());
 
     }
+
+    _limparFormulario(); {
+        this._inputData = '01/01/2020';
+        this._inputQuantidade = 1
+        this._inputValor = 2
+}
 }
