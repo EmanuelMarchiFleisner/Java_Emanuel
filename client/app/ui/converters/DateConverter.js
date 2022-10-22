@@ -3,7 +3,7 @@ class DateConverter {
         throw new Error('Esta class não pode ser instancia');
     }
 
-    paraTexto (data) {
+    static paraTexto (data) {
         //return data.getDate() + '/' + (data.getMonth() + 1) + '/' + data.getFullYear();
         return `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`;
     }

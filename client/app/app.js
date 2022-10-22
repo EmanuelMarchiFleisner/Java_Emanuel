@@ -1,5 +1,6 @@
-let controller = new NegociacaoController();
+const controller = new NegociacaoController();
 
-document.querySelector('.form').addEventListener('submit', controller.adciona.bind(controller)){
-        controller.adciona(e);
-)}
+document.querySelector('.form').addEventListener('submit', controller.adciona.bind(controller));
+
+document.querySelector('#botao-apaga')
+.addEventListener('click', controller.apaga.bind(controller));
