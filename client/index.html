@@ -50,20 +50,48 @@
         <script src="app/app.js"></script>
 
     <script>
-        var n1 = new Negociacao(new Date(), 10, 3.0);
-        var volume = n1.getObterVolume;
-        n1.quantidade = 30;
-        console.log(n1.quantidade);
-        n1._quantidade = 50;
-        console.log(n1._quantidade);
+      /* const negociacao = new Proxy(new Negociacao(new Date(), 2, 100), {
+           get: function (target, prop, receiver) {
+               console.log(`a propriedade "${prop}""caiu na armadilha"`);
+               return target[prop];
+           },
 
-        console.log(n1);
-        console.log(volume);
-        console.log(n1.Data());
-        console.log(n1.Quantidade());
-        console.log(n1.Valor());
+           set(target, prop, value, receiver) {
+               console.log(`${prop} guarda ${target[prop]}, recebera ${value}`)
+               return Reflect.set(target, prop, value)
+           },
+       });
 
-         const
+       console.log(negociacao.Quantidade);
+       conole.log(negociacao.Valor);
+       negociacao._quantidade = 10;
+       negociacao._valor = 200;
+
+       const negociacoes = new Proxy(new Negociacoes(),{
+           get(target, prop, receiver) {
+               if (typeof(target[prop]) == typeof(Function) && ['adiciona', 'esvazia'].includes(prop)) {
+                    return function () {
+                        console.log('${prop} disparou a armadilha')
+                        target[prop].apply(target, arguments);
+                    }
+               }
+               else  {
+                   return target[prop];
+               }
+                },
+           set(target, prop, value, receiver) {
+                   console.log(`${prop} guarda ${target [prop]}, receberá $[value]`)
+                   return Reflect.set(target, prop, value);
+           },
+       });
+       negociacoes.adiciona(new Negociacao(new Date(), 1, 200))
+       //negociacoes.esvazia();
+
+       function exibeNomeCompleto() {
+           console.log(`Nome completo: ${arguments[0]} ${arguments[1]}`)
+       }
+       exibeNomeCompleto('Emanuel','Fleisner');*/
+
 
     </script>
 
